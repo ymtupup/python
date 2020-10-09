@@ -1,0 +1,16 @@
+def loadDataSet(fileName):
+	"""
+	读取数据
+	Parameters:
+	    fileName - 文件名
+	Returns:
+	    dataMat - 数据矩阵
+	    labelMat - 数据标签
+	"""
+	dataMat = []; labelMat = []
+	fr = open(fileName)
+	for line in fr.readlines():                                     #逐行读取，滤除空格等
+		lineArr = line.strip().split('\t')
+		dataMat.append([float(lineArr[0]), float(lineArr[1])])      #添加数据
+		labelMat.append(float(lineArr[2]))                          #添加标签
+	return dataMat,labelMat
